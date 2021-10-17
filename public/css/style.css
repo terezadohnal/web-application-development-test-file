@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+  background-color: #a1d15b;
+  margin: 0 auto;
+
+}
+
+main {
+  max-width: 980px;
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  text-align: justify;
+  font-family: Verdana, sans-serif;
+}
+
+main h1 {
+  font-size: 30px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* this is magic! */
+}
+
+nav a {
+  color: white;
+  background: #78be14; 
+  text-decoration: none;
+  letter-spacing: 2px;
+  padding: 20px 5px;
+  display: block;
+  text-align: center;
+  font-weight: 700
+}
+
+nav a:hover {
+  background: #a1d15b;
+  text-decoration:none;
+  color: #ffffff; 
+}
+
+nav li {
+  flex: 1;
+}
+
+
+
+img.article_title {
+  float: left;
+  max-width: 100px;
+}
+
+section {
+  margin-top: 3%;
+}
+
+section.boxes {
+  display: flex;
+}
+
+div.box {
+  width: 100%;
+  min-height: 150px;
+  border: 1px solid;
+  margin: 5%;
+}
+
+.boxes div.box:nth-child(2) {
+  background-color: #d4ac41;
+}
+
+/* Form styles */
+
+input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: auto;
+  background-color: #78be14;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #a1d15b;
+}
+
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+/* Table styles */
+
+.fl-table {
+    border-radius: 5px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #324960;
+}
+
+
+/* Media queries */
+@media all and (max-width: 1000px) {
+  nav ul, .boxes /*.articles: todo*/ { 
+      flex-wrap: wrap;
+   }
+  
+  nav li {
+    flex: 1 1 50%;
+  }
+}
+
+@media all and (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+  }
+  
+
+  p, h2 {
+    padding: 0 5%;
+  }
+  
+  article h2 {
+    font-size: 30pt;
+  }
+  
+  article p {
+    font-size: 20pt;
+  }
+  
+  article .article_img {
+    display: none;
+  }
+}
+

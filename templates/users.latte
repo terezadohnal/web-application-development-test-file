@@ -1,0 +1,53 @@
+{extends layout.latte} {block title}Title{/block} {block body}
+
+<section>
+  <form>
+  <input type="text" name="query" placeholder="e.g. John Doe">
+  <input type="submit" value="GO">
+  </form>
+
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Born</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {foreach $users as $u}
+      <tr>
+        <td>{$u['first_name']} {$u['nickname']} {$u['last_name']}</td> {* pristupujeme k tomu skrz jmena klicu *}
+        <td>
+        {* vkladame ikonky misto textu: *}
+          {if $u['gender'] == 'male'}
+            <i class="fas fa-mars"></a>
+          {else}
+            <i class="fas fa-venus"></a>
+          {/if}
+        </td>
+        <td>{$u['birth_day']|date:'%d.%m.%Y'}</td>
+        <td>
+          <a href="{link show_location, ['id_location' => $u['id_location']]}">
+            <button>
+              <i class="fas fa-map-marked-alt"></i> Adress
+            </button>
+          </a>
+        </td>
+        <td>
+          <a href="{link delete_user, ['id_person' => $u['id_person']]}">
+            <button>
+              <i class="far fa-trash-alt"></i> Delete
+            </button>
+          </a>
+        </td>
+      </tr>
+      
+      {/foreach}
+    </tbody>
+  </table>
+</section>
+
+{/block}
