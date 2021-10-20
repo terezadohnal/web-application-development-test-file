@@ -1,0 +1,59 @@
+{block user_form}
+	 <!-- Optional message -->
+    {if isset($message)}
+        <p>{$message}</p>
+    {/if}
+
+	<form method="post">
+		<fieldset>
+			<legend>Personal info</legend>
+			<!-- Firtst name -->
+			<label> First name
+				<input type="text" name="first_name" placeholder="First name" required value="{$formData['first_name']}">
+			</label>
+
+			<!-- Last name -->
+			<label for="last_name">Last name</label> 
+				<input type="text" name="last_name" placeholder="Last name" required value="{$formData['last_name']}">
+
+			<!-- Nickname -->
+			<label for="nickname">Nickname</label> 
+				<input type="text" name="nickname" placeholder="Nickname" required value="{$formData['nickname']}">
+
+			<!-- Gender -->
+			<label for="height">Gender</label>    
+				<select type="text" name="gender"required>
+					<option value="male" {if $formData['gender'] == 'male'}selected{/if}>Male</option>
+					<option value="female" {if $formData['gender'] == 'female'}selected{/if}>Female</option>
+				</select>
+
+			<!-- Height -->
+			<label for="height">Height</label>
+				<input min=10 type="number" name="height" placeholder="Height" value="{$formData['height']}">
+
+			<!-- Birth day -->
+			<label for="birth_day">Birthday</label>
+				<input type="date" name="birth_day" placeholder="Date of birth" value="{$formData['birth_day']}">
+		</fieldset>
+
+		<fieldset>
+			<legend>Address</legend>
+			<!-- Street  name -->
+			<label for="city">Street name</label>
+				<input type="text" name="street_name" placeholder="Street name" value="{$formData['street_name']}">
+			
+			<!-- Street number -->
+			<label for="city">Street number</label>
+				<input type="number" name="street_number" placeholder="Street number" value="{$formData['street_number']}">
+
+			<!-- City -->
+			<label for="zip">City</label>
+				<input type="text" name="city" placeholder="City" value="{$formData['city']}">
+
+			<!-- ZIP -->
+			<label for="zip">ZIP</label>
+				<input type="text" name="zip" placeholder="ZIP" value="{$formData['zip']}">
+		</fieldset>
+
+		<input type="submit" value="OK"> 
+{/block}

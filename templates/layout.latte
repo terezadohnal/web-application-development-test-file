@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>{include title}</title>
-    <link rel="stylesheet" href="{$basePath}/css/font-awesome/css/all.min.css">
-    <link rel="stylesheet" href="{$basePath}/css/style.css">
+    <link
+      rel="stylesheet"
+      href="{$basePath}/css/font-awesome/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{$basePath}/css/style.css" />
     <script type="text/javascript" src="{$basePath}/js/jquery.js"></script>
-    <script type="text/javascript" src="{$basePath}/css/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+      type="text/javascript"
+      src="{$basePath}/css/bootstrap/js/bootstrap.bundle.min.js"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     {ifset meta}{include meta}{/ifset}
-</head>
-<body>
+  </head>
+  <body>
     <main>
-    <nav>
+      <nav>
         <ul>
-            <li> <a href="{link index}"><i class="fas fa-home"></i></a></li>
-            <li> <a href="{link users}">Users</a></li>
-            <li> <a href="#">link2</a></li>
-            <li> <a href="#">link3</a></li>
-            <li> <a href="#"><i class="fas fa-user"></i> Log in</a> </li>
+          <li>
+            <a href="{link index}"><i class="fas fa-home"></i></a>
+          </li>
+          <li class="dropdown_btn">
+            <a href="{link users}">Users</a>
+            <ul class="dropdown_content">
+              <li>
+                <a href="{link user_new}"
+                  ><i class="fas fa-user-plus"></i> New user</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">link2</a></li>
+          <li><a href="#">link3</a></li>
+          <li>
+            <a href="#"><i class="fas fa-user"></i> Log in</a>
+          </li>
         </ul>
-    </nav>
+      </nav>
 
-    {include body}
-    
+      {include body}
     </main>
-</body>
+  </body>
 </html>
