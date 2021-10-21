@@ -96,7 +96,7 @@ $app->get('/user/new', function (Request $request, Response $response, $args) {
 
 //zpracovani formulare
 //metoda se podiva do tela pozadavku a sestavi nam z toho pole
-$app->post('user/new', function (Request $request, Response $response, $args){
+$app->post('/user/new', function (Request $request, Response $response, $args){
     $formData = $request->getParsedBody();
 
     //zjisteni, jestli jsou prvni 3 atributy vyplnene
