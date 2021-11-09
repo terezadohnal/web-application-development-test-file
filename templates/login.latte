@@ -1,0 +1,22 @@
+{extends layout.latte}
+
+{block title}Login form{/block}
+
+{block body}
+	<section id="login_form">
+		{if isset($message)} 
+			<p>{$message}</p>
+		{/if}
+		<form method="post">
+			<label>Username
+				<input type="text" name="nickname" required>
+			</label>
+
+			<label>Password
+				<input type="password" name="password" required>
+			</label>
+
+			<input type="submit" value="Send">
+		</form>
+	</section>
+{/block}

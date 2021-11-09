@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #a1d15b;
+  background-color: #d6d8d4;
   margin: 0 auto;
 }
 
@@ -13,6 +13,10 @@ body {
 
 ul.dropdown_content {
   display: none;
+}
+
+tr#logged_user {
+  background-color: #c6cfba;
 }
 
 main {
@@ -39,7 +43,7 @@ nav ul {
 
 nav a {
   color: white;
-  background: #78be14;
+  background: #314b0f;
   text-decoration: none;
   letter-spacing: 2px;
   padding: 20px 5px;
@@ -49,7 +53,7 @@ nav a {
 }
 
 nav a:hover {
-  background: #a1d15b;
+  background: #273b0c;
   text-decoration: none;
   color: #ffffff;
 }
@@ -97,7 +101,7 @@ select {
 
 input[type="submit"] {
   width: auto;
-  background-color: #78be14;
+  background-color: #314b0f;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -107,7 +111,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #a1d15b;
+  background-color: #273b0c;
 }
 
 form {

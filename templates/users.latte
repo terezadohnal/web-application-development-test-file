@@ -18,8 +18,9 @@
 
     <tbody>
       {foreach $users as $u}
-      <tr>
-        <td>{$u['first_name']} {$u['nickname']} {$u['last_name']}</td> {* pristupujeme k tomu skrz jmena klicu *}
+      <tr {if isset($loggedUser) && $loggedUser['id_person'] == $u['id_person']} id='logged_user' {/if}>
+      {* muzeme pristupovat k logeed_user protoze to mame ulozene v middleware *}
+        <td>{$u['first_name']} "{$u['nickname']}" {$u['last_name']}</td> {* pristupujeme k tomu skrz jmena klicu *}
         <td>
         {* vkladame ikonky misto textu: *}
           {if $u['gender'] == 'male'}
@@ -37,11 +38,17 @@
           </a>
         </td>
         <td>
-          <a href="{link delete_user, ['id_person' => $u['id_person']]}">
-            <button>
-              <i class="far fa-trash-alt"></i> Delete
-            </button>
-          </a>
+        {if isset($loggedUser)}
+        {* tlacitko se nezobrazi neprihlasenym *}
+          {if $loggedUser['id_person'] != $u['id_person']}
+          {* tlacitko se nezobrazi prihlasene osobe u sebe *}
+              <a href="{link delete_user, ['id_person' => $u['id_person']]}">
+                <button>
+                  <i class="far fa-trash-alt"></i> Delete
+                </button>
+              </a>
+            {/if}
+          {/if}
         </td>
       </tr>
       
