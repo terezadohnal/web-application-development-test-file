@@ -19,6 +19,10 @@ tr#logged_user {
   background-color: #c6cfba;
 }
 
+#logged_user_row {
+  background-color: rgb(126 93 42);
+}
+
 main {
   max-width: 980px;
   background-color: rgb(255, 255, 255);

@@ -1,4 +1,8 @@
-{extends layout.latte} {block title}Title{/block} {block body}
+{extends layout.latte} 
+
+{block title}Users{/block} 
+
+{block body}
 
 <section>
   <form>
@@ -18,7 +22,7 @@
 
     <tbody>
       {foreach $users as $u}
-      <tr {if isset($loggedUser) && $loggedUser['id_person'] == $u['id_person']} id='logged_user' {/if}>
+        <tr {if $logged_user['id_person'] == $u['id_person']}id='logged_user_row'{/if}>
       {* muzeme pristupovat k logeed_user protoze to mame ulozene v middleware *}
         <td>{$u['first_name']} "{$u['nickname']}" {$u['last_name']}</td> {* pristupujeme k tomu skrz jmena klicu *}
         <td>
@@ -31,18 +35,19 @@
         </td>
         <td>{$u['birth_day']|date:'%d.%m.%Y'}</td>
         <td>
-          <a href="{link show_location, ['id_location' => $u['id_location']]}">
+          <a href="{link user_edit, ['id_person' => $u['id_person']]}">
             <button>
               <i class="fas fa-map-marked-alt"></i> Adress
             </button>
           </a>
         </td>
         <td>
-        {if isset($loggedUser)}
+        {if !empty($logged_user)}
         {* tlacitko se nezobrazi neprihlasenym *}
           {if $loggedUser['id_person'] != $u['id_person']}
           {* tlacitko se nezobrazi prihlasene osobe u sebe *}
-              <a href="{link delete_user, ['id_person' => $u['id_person']]}">
+              <a href="{link delete_user, ['id_person' => $u['id_person']]}"
+              onclick="return confirm('Are you sure?')">
                 <button>
                   <i class="far fa-trash-alt"></i> Delete
                 </button>

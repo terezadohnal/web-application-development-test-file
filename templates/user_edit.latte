@@ -1,0 +1,23 @@
+{extends layout.latte}
+{import form_components.latte}
+
+{block title} {/block}
+
+{block body}
+    {include user_form}
+
+    <iframe width="500px" id="gmap" src="https://maps.google.com/maps?q={$formData['street_name']},{$formData['street_number']},{$formData['city']},{$formData['zip']}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+    </iframe>
+    {if $logged_user['id_person'] != $formData['id_person']} //pouze pokud je uzivatel prihlaseny
+
+        <script type='text/javascript'>
+            var inputs = document.getElementsByTagName('input');
+            for (i = 0; inputs.length; i++){
+                console.log(inputs[i]);
+                inputs[i].disabled = true;
+            };
+            document.querySelectorAll('input[type="submit"]')[0].style.display = 'none';
+        </script>
+    {/if}
+
+{/block}
